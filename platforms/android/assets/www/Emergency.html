@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html data-ng-app="SQUapp">
+
+ <body>
+ 
+ 
+ <style>
+ 
+.th2{
+text-align:center;
+}
+
+ html, body {
+    height:100%;
+} 
+body 
+    {
+		 background-color:#EAE7E5;
+    }
+	
+	#register-form{
+margin-top:1%;
+}	
+.sshare{
+padding-left:10px;
+}
+
+	
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+        width: 40%;
+	direction: rtl;
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px){ 
+
+#register-form{
+margin-top:1%;
+}	
+.sshare{
+padding-left:10px;
+}
+
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+#register-form{
+margin-top:1%;
+}	
+
+.c-address{
+font-size:20px;
+text-align:center;
+}
+.sshare{
+padding-left:20px;
+margin-top:-40px;
+width:65px;
+}
+.ro1{
+margin-top:5%;
+}
+
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+#register-form{
+margin-top:10%;
+}	
+
+.c-address{
+font-size:20px;
+text-align:center;
+}
+.sshare{
+padding-left:20px;
+margin-top:-40px;
+width:75px;
+}
+.ro1{
+margin-top:5%;
+text-align:left;
+}
+
+
+	
+}
+	
+	 </style>
+	 
+	 <script>
+	 
+
+	var Lan = localStorage.getItem("Language");
+	
+	
+	if (Lan == "Ar") {
+	//alert(Lan);
+	var th1 = document.getElementsByClassName("th1");
+	for (var i = 0; i < th1.length; i += 1) {
+		th1[i].style.textAlign = "right";
+	}
+	
+	}
+
+	 </script>
+	 
+	  <!--<h1>{{Emergency.EmergencyImportantContactsnumbers}}</h1><br>
+	 
+	<h2>{{Emergency.SQUCampus}}<h2><br>
+	 <h3>{{Emergency.Contactinsqu}}<h3><br>
+	 
+	 <p>{{Emergency.SQUsecurity}} : </p>-->
+	 
+		 <div class="container">
+		 
+		 <table>
+		 <tr><center><th colspan="2" class="th2" ><h3 style="color: #3fa1bd;font-size: x-large;font-weight: 700;">{{Emergency.EmergencyImportantContactsnumbers}}</h3></th><center></tr>
+		 <tr><center><th colspan="2" class="th2" style="padding: 3px;border: 1px solid black;background-color: #3fa1bd;color: aliceblue;">{{Emergency.SQUCampus}}</th><center></tr>
+		 <tr><th style="padding: 3px;border: 1px solid black;">{{Emergency.m1}}</th><th class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m2}}</th><tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m3}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m4}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m5}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m6}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m7}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m8}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m9}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m10}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m11}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m12}}</td></tr>
+
+		 <tr><center><th colspan="2" class="th2" style="padding: 3px;border: 1px solid black;background-color: #3fa1bd;color: aliceblue;">{{Emergency.OutsideSQUCampus}}</th><center></tr>
+		 <tr><th style="padding: 3px;border: 1px solid black;">{{Emergency.m13}}</th><th class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m14}}</th></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m15}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m16}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m17}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m18}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m19}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m20}}</td></tr>
+		 <tr><td style="padding: 3px;border: 1px solid black;">{{Emergency.m21}}</td><td class="th1" style="padding: 3px;border: 1px solid black;">{{Emergency.m22}}</td></tr>
+		 <tr><td>{{Emergency.m23}}</td><td class="th1">{{Emergency.m24}}</td></tr>
+		 
+		 </table>
+				 
+				
+			<!--- Emergency page content ---> <!--
+			<div align="center"><h2>{{Emergency.EmergencyImportantContactsnumbers}}</h2></div>
+			<div align="center"><h3 style="color: #3fa1bd;font-size: x-large;font-weight: 700;">{{Emergency.SQUCampus}}</h3></div>
+
+				 <div dir="{{Direction}}">
+					 <div class="row ro1" > 
+						 <div class="col-xs-12 col-sm-12" style="margin-bottom:100px;">
+							 <font class="c-address" color="#31b0d5">
+							 <ul>
+							 <br>
+								<b> <li>{{Emergency.m1}}</li>
+								 <li style="display: flex;width: 60%;">{{Emergency.m2}}</li>
+								 </ul></b>
+								 <ul>
+							 <br>
+								 <li>{{Emergency.m3}}</li>
+								 <li style="display: flex;width: 60%;">{{Emergency.m4}}</li>
+								 </ul>
+								 <ul><br><li>{{Emergency.m5}}</li><li style="display: flex;width: 60%;">{{Emergency.m6}}</li></ul>
+								 <ul><br><li>{{Emergency.m7}}</li><li style="display: flex;width: 60%;">{{Emergency.m8}}</li></ul>
+								 <ul><br><li>{{Emergency.m9}}</li><li style="display: flex;width: 60%;">{{Emergency.m10}}</li></ul>
+								 <ul><br><li>{{Emergency.m11}}</li><li style="display: flex;width: 60%;">{{Emergency.m12}}</li></ul>
+
+							
+								 
+								 
+
+							 </font>
+								</div>
+							</div>
+						</div>
+						
+						<div align="center"><h3 style="color: #3fa1bd;font-size: x-large;font-weight: 700;">{{Emergency.OutsideSQUCampus}}</h3></div>
+						
+						 <div dir="{{Direction}}">
+					 <div class="row ro1" > 
+						 <div class="col-xs-12 col-sm-12" style="margin-bottom:100px;">
+							 <font class="c-address" color="#31b0d5">
+							 <b><ul><br><li>{{Emergency.m13}}</li><li style="display: flex;width: 60%;">{{Emergency.m14}}</li></ul></b>
+							 <ul><br><li>{{Emergency.m15}}</li><li style="display: flex;width: 60%;">{{Emergency.m16}}</li></ul>
+							 <ul><br><li>{{Emergency.m17}}</li><li style="display: flex;width: 60%;">{{Emergency.m18}}</li></ul>
+							 <ul><br><li>{{Emergency.m19}}</li><li style="display: flex;width: 60%;">{{Emergency.m20}}</li></ul>
+							 <ul><br><li>{{Emergency.m21}}</li><li style="display: flex;width: 60%;">{{Emergency.m22}}</li></ul>
+							 <ul><br><li>{{Emergency.m24}}</li><li style="display: flex;width: 60%;">{{Emergency.m23}}</li></ul>
+							
+							
+								 
+								 
+
+							 </font>
+								</div>
+							</div>
+						</div>
+						
+						--><!--//-->
+						
+						</div>
+</body>
+</html>

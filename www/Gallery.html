@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html data-ng-app="SQUapp">
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/default-skin.css" />
+    <link rel="stylesheet" type="text/css" href="css/photoswipe.css" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	
+<style>
+html, body {
+    height:100%;
+} 
+body 
+    {
+        
+        background-image: url("images/background.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+       
+    }
+	
+.img-thumb{
+width:160px;
+height:140px;
+padding: 5px;
+border: solid 1px #FFFFFF;
+
+}
+.row,.top-h{
+margin-top:10%;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 479px){ 
+.img-thumb{
+width:120px;
+height:100px;
+margin-bottom:3%;
+
+}
+.row,.top-h{
+margin-top:20%;
+}
+
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+
+.img-thumb{
+width:190px;
+height:160px;
+margin-bottom:3%;
+
+}
+.row,.top-h{
+margin-top:15%;
+}
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+.img-thumb{
+width:250px;
+height:220px;
+margin-bottom:3%;
+
+}
+.row,.top-h{
+margin-top:15%; 
+}
+	
+}			
+</style>
+ 
+  
+   
+ <body>
+ 
+  
+  
+  <!-- =================Carousol============== -->
+  <div class="container">
+   
+	  <div class="row">
+	  <div align="center"><h1>{{Gallery.gallery}}</h1></div>
+		  <div class="col-md-6 col-sm-6 col-xs-6 text-center top-h">
+		   <img ng-src="images/gallery/University/2.jpg" class="img-thumb" onclick="openPhotoSwipe('images/gallery/University/',10,'University');"> <br>{{Gallery.university}}
+		  <!-- <div class="gallery">
+				<a href="images/gallery/University/1.jpg" rel="prettyPhoto[gallery1]"><img src="images/gallery/University/2.jpg" class="img-thumb"/><br>University</a>
+				<a href="images/gallery/University/2.jpg" rel="prettyPhoto[gallery1]"></a>
+				<a href="images/gallery/University/3.jpg" rel="prettyPhoto[gallery1]"></a>
+				<a></a>
+			</div> -->
+		  </div>
+		  
+		  <div class="col-md-6 col-sm-6 col-xs-6 text-center top-h">
+		   <img ng-src="images/gallery/CustomerService/2.jpg" class="img-thumb" onclick="openPhotoSwipe('images/gallery/CustomerService/',10,'CustomerService');"> <br>{{Gallery.customer}}
+		  <!-- <div class="gallery">
+				<a href="images/gallery/University/1.jpg" rel="prettyPhoto[gallery1]"><img src="images/gallery/University/2.jpg" class="img-thumb"/><br>University</a>
+				<a href="images/gallery/University/2.jpg" rel="prettyPhoto[gallery1]"></a>
+				<a href="images/gallery/University/3.jpg" rel="prettyPhoto[gallery1]"></a>
+				<a></a>
+			</div> -->
+		  </div>
+
+	  </div>
+  </div>
+  
+  
+  
+  
+  
+  
+
+<!-- =================/////Carousol============== -->
+
+
+<!-- =================Gallery============== -->
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<!-- Background of PhotoSwipe. 
+			 It's a separate element, as animating opacity is faster than rgba(). -->
+		<div class="pswp__bg"></div>
+
+		<!-- Slides wrapper with overflow:hidden. -->
+		<div class="pswp__scroll-wrap">
+
+			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+			<div class="pswp__container">
+				<!-- don't modify these 3 pswp__item elements, data is added later on -->
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+
+			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+			<div class="pswp__ui pswp__ui--hidden">
+
+				<div class="pswp__top-bar">
+
+					<!--  Controls are self-explanatory. Order can be changed. -->
+
+					<div class="pswp__counter"></div>
+
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+					<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+					<!-- element will get class pswp__preloader--active when preloader is running -->
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+						  <div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						  </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div> 
+				</div>
+
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+				</button>
+
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+				</button>
+
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+
+			  </div>
+
+			</div> 
+
+	</div>
+
+<!-- =================/////Gallery============== -->
+
+
+
+   
+   
+   
+	<!----------------------------footer Nav---------------------------------------->
+			<!-- <div class="navfoot" align="center">
+		              <img src="images/Lemon_Tech_logo.png" style="width:120px;"/>
+		            </div> -->
+	<!--------------------------//footer Nav---------------------------------------->
+							
+		<!--start-smoth-scrolling-->
+	<!-- a href="#about" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> -->
+		<!--//smoth-scrolling-->
+							
+</body>
+     <script type="text/javascript" src="js/photoswipe.js"></script>
+        <script type="text/javascript" src="js/photoswipe-ui-default.js"></script>
+					
+		
+		
+		
+		<script type="text/javascript" charset="utf-8">
+		
+			var openPhotoSwipe = function(x,y,z) {
+			var pswpElement = document.querySelectorAll('.pswp')[0];
+			
+			var m="\xa0(Slide left or right to view other Images) \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 (Slide up to exit)";
+			var items =[];
+			var i,k;
+			for(i=0;i<y;i++)
+			{
+			k=x+(i+1)+".jpg";
+			items.push({src:k,w:1500,h:1000,title:m});
+			}  
+			//console.log(items);
+			
+			
+			
+			// build items array
+		/*	var items = [
+				{
+					src: 'img/University/1.jpg',
+					msrc: 'img/University/1.jpg',
+					w: 964,
+					h: 1024,
+					title: 'University hall'
+				},
+				{
+					src: 'img/University/2.jpg',
+					msrc: 'img/University/2.jpg',
+					w: 1024,
+					h: 683,
+					title: 'University front'
+				} 
+			];*/
+			
+			// define options (if needed)
+			var options = {
+					 // history & focus options are disabled on CodePen        
+				history: false,
+				focus: false,
+
+				showAnimationDuration: 0,
+				hideAnimationDuration: 0
+				
+			};
+			
+			var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+			gallery.init();
+		};
+		
+
+				/*$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:3000, hideflash: true});
+		
+				$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+					custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+					changepicturecallback: function(){ initialize(); }
+				});
+
+				$("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
+					custom_markup: '<div id="bsap_1259344" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div><div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
+					changepicturecallback: function(){ _bsap.exec(); }
+				});
+			});*/
+			</script>
+		
+</html>

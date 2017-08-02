@@ -1,0 +1,15 @@
+.inner {
+  fill: lightgrey;
+}
+
+.starWrap.active .star .inner {
+  fill: orange;
+}
+
+.set .star .inner {
+  fill: gold;
+}
+
+.set.active .star .inner {
+  fill: #ffbe00;
+}

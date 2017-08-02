@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html data-ng-app="SQUapp">
+<meta charset="UTF-8">
+
+
+    
+
+
+
+ <style>
+
+body 
+    {
+        
+        background-image: url("images/background.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+       
+    }
+ </style>
+
+   
+ <body>
+ <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+	
+   <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3623712488247!2d58.17001881427269!3d23.59133358466804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e8de2c15540870d%3A0x2ce06efa9952a6e!2sSultan+Qaboos+University!5e0!3m2!1sen!2sin!4v1460639527351" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+	<!----------------------------footer Nav---------------------------------------->
+			<!-- <div class="navfoot" align="center">
+		              <img src="images/Lemon_Tech_logo.png" style="width:120px;"/>
+		            </div> -->
+	<!--------------------------//footer Nav---------------------------------------->
+							
+		<!--start-smoth-scrolling-->
+	<!-- <a href="#about" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> -->
+		<!--//smoth-scrolling-->
+							
+</body>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHydSsCP_iDaEmxjtu7wL4gA5D-TiyXY&callback=initMap"
+    async defer></script>
+    
+		<script type="text/javascript">
+		
+		var map;
+		function initMap() {
+		//alert("IN");
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 23.591304, lng: 58.172175},
+          zoom: 16
+			});
+		}
+        /*function initi() {
+		alert("in");
+        var latlng = new google.maps.LatLng(-34.397, 150.644);
+        var myOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+}*/
+//google.maps.event.addDomListener(window, "load", initialize);
+			
+		</script>
+		
+</html>

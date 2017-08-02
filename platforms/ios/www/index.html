@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="SQUapp">
+<meta charset="UTF-8">
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHydSsCP_iDaEmxjtu7wL4gA5D-TiyXY"
+   async defer></script> -->
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+
+<!-- <link href="css/carousel.css" rel="stylesheet" type="text/css"> -->
+<!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="all">  -->
+<link href="css/component.css" rel="stylesheet" type="text/css" />
+
+<!-- <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="css/jquery.raty.css"/> -->
+
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+
+<!-- <script type="text/javascript" src="js/JQMswipe.js"></script> -->
+
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript" src="cordova//.js"></script>
+
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+
+<!-- *******************gallery js************************* -->
+<!-- <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+    <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script> -->
+<!-- *******************/////gallery js************************* -->
+<!-- <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.raty.js"></script> -->
+
+    <body>
+
+        <div data-ui-view></div>
+
+        <!--------------------Spinner------------------------->
+
+        <div class='poptag' style="display:none;">
+            <div class="overlay1"></div>
+            <img src="images/loader.gif" class='loader' style="z-index:99999;">
+            <!-- <span class="loader1">Loading...</span> -->
+        </div>
+
+        <!--------------------////Spinner------------------------->
+    
+        <!--------------------Bootstrap alert------------------------->
+
+        <div align="center">
+            <div class="alert-1 alert-success" role="alert" align="center">
+                <span class="alert-1-1">
+                    <strong></strong>
+                </span>
+            </div>
+
+            <div class="alert-2 alert-info" role="alert" align="center">
+                <span class="alert-2-1">
+                    <strong></strong>
+                </span>
+            </div>
+        </div>
+
+        <!--------------------////Bootstrap alert------------------------->
+    </body>
+
+
+    <script>
+
+        //var smsplugin = cordova.require("info.asankan.phonegap.smsplugin.smsplugin");
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            //alert("ready");
+            navigator.splashscreen.hide();
+			
+        }
+		
+
+
+        /*************** Back button configuration ************/
+
+        /*document.addEventListener("backbutton", onBackKeyDown, true);
+
+        function onBackKeyDown()
+        {
+            var locate=document.location.href.match(/[^\/]+$/)[0];
+            if(locate=="Home")
+            {
+            resp = confirm("Do you want to exit the app?");
+                if (resp === true)
+                {
+                  navigator.app.exitApp();
+                }
+            }
+            else
+            {
+            location.href="#Home";
+            }
+        }*/
+        /*************** ////Back button configuration ************/
+
+        /*************** spinner show/hide ************/
+        function spinshow() {
+            $(".poptag").show();
+        }
+
+        function spinhide() {
+            $(".poptag").hide();
+        }
+
+        /*************** // spinner show/hide ************************/
+
+
+        /************ Custom AlertBox *****************/
+        function specialalert(select, msg, time) {
+            var selector = "." + select;
+            var selectmsg = selector + "-1";
+            $(selector).show();
+            $(selectmsg).html(msg);
+            window.setTimeout(function () {
+                $(selector).fadeTo(500, 0).slideUp(500, function () {
+                    $(this).remove();
+                });
+            }, time);
+
+        }
+
+        /************ //// Custom AlertBox *****************/
+
+        /************ //// Network checker *****************/
+
+        /*function networkcheck(k)
+        {
+            //alert("hello");
+            if(k==0)
+            {
+            specialalert("alert-2","Device Offline",3000);
+            }
+            else if(k==1)
+            {
+                $.ajax({
+                  url: 'http://retro.naplesplus.us',
+                  success: function(data) {
+                    alert('you are in online mode');
+                    specialalert("alert-2","",3000);
+                   },
+                  error: function(data) {
+                    alert('you are in offline mode');
+                  }
+                });
+
+            }
+        }*/
+
+        /************ //// Network checker *****************/
+
+        /************ Site Loader Browser *****************/
+        function siteloader(URL) {
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+                /*var ref = window.open(URL, '_blank', 'location=no');
+                ref.addEventListener('loadstart', function () { });          //alert('Loading...');
+                ref.addEventListener('loadstop', function () { });               //alert('Loading complete!');
+                ref.addEventListener('exit', function () { });					//alert(event.type);*/
+				
+				
+				spinshow() // implement by yourself
+				//var poppup = window.open(URL, "_blank", "location=no,toolbar=no,hidden=yes");
+				var poppup = cordova.InAppBrowser.open(URL, "_blank", "location=no,toolbar=no,hidden=yes");
+				
+				
+				popup.addEventListener("loadstop", function() {
+				  popup.show();
+				  spinhide(); // implement by yourself
+				});
+            }
+        }
+
+        /************ //// Site Loader Browser *****************/
+
+
+
+
+        var SQUapp = angular.module("SQUapp", ['ui.router']);
+        //var root="http://192.168.0.77//LemonWCFServices/Login.svc";                //"http://192.99.57.6/LemonPRWCF/Login.svc";
+
+        SQUapp.config(function ($stateProvider, $urlRouterProvider) {
+
+            $urlRouterProvider
+                             .otherwise('/Home');
+
+            $stateProvider
+                          .state('Home', {
+                              url: '/Home',
+                              templateUrl: 'Home.html',
+                              controller: 'HomeController'
+                          })
+
+                          .state('Maps', {
+                              url: '/Maps',
+                              templateUrl: 'Maps.html',
+                              controller: 'MapsController'
+                          })
+
+                         .state('Technology', {
+                             url: '/Technology',
+                             templateUrl: 'Technology.html',
+                             controller: 'TechnologyController'
+                         })
+
+                          .state('ContactUs', {
+                              url: '/ContactUs',
+                              templateUrl: 'ContactUs.html',
+                              controller: 'ContactUsController'
+                          })
+
+                          .state('Gallery', {
+                              url: '/Gallery',
+                              templateUrl: 'Gallery.html',
+                              controller: 'GalleryController'
+                          });
+
+        });
+
+        SQUapp.controller('HomeController', function ($scope, $http, $state, $rootScope, $window, $location) {
+
+            var Lan = localStorage.getItem("Language");
+            $scope.Language = "Eng";
+            $scope.IsArabic = true;
+            $scope.HomeData = {
+                squmap: "SQU Map", sis: "SIS", squnews: "SQU News",
+                events: "Events", squh: "SQUH", libraries: "Libraries",
+                rest: "Restaurants & Cafes", squwebsite: "SQU Website", squpartners: "SQU Partners",
+                contactus: "Contact Us", emergency: "Emergency", gallery: "Gallery"
+            };
+
+            if (typeof Lan != 'undefined' && Lan == null || Lan == "") {
+                //alert(Lan + "un");
+                //$('#Langsel').modal('toggle');
+                Lan == "En";
+                $scope.v1 = "images/en/";
+                $scope.Language = "Eng";
+                $scope.IsArabic = true;
+                SetHomeData(false);
+            }
+            else if (Lan == "En") {
+                //alert(Lan);
+                $scope.v1 = "images/en/";
+                $scope.Language = "Eng";
+                $scope.IsArabic = true;
+                SetHomeData(false);
+            }
+            else if (Lan == "Ar") {
+                //alert(Lan);
+                $scope.v1 = "images/ar/";
+                $scope.Language = "Ar";
+                $scope.IsArabic = false;
+                SetHomeData(true);
+            }
+
+            spinshow();
+
+            setTimeout(function () {
+                spinhide();
+            }, 2000);
+
+            $scope.Lang = function () {
+                //alert("IN");
+                $('#Langsel').modal('toggle');
+            }
+
+            function SetHomeData(isArabic) {
+                if (isArabic) {
+                    $scope.HomeData = {
+                        squmap: "رسم خريطة", sis: "SIS", squnews: "أخبار",
+                        events: "أحداث", squh: "مستشفى", libraries: "المكتبات",
+                        rest: "المطاعم", squwebsite: "موقع", squpartners: "شركاء",
+                        contactus: "اتصل بنا", emergency: "حالة طوارئ", gallery: "صالة عرض"
+                    };
+                }
+                else {
+                    $scope.HomeData = {
+                        squmap: "SQU Map", sis: "SIS", squnews: "SQU News",
+                        events: "Events", squh: "SQUH", libraries: "Libraries",
+                        rest: "Restaurants", squwebsite: "Website", squpartners: "Partners",
+                        contactus: "Contact Us", emergency: "Emergency", gallery: "Gallery"
+                    };
+                }
+            }
+
+            $scope.Eng = function () {
+                //alert("English");
+                //$('#Langsel').modal('toggle');
+                $scope.v1 = "images/en/";
+                localStorage.setItem("Language", "En");
+
+                $scope.IsArabic = true;
+                $scope.Language = "Eng";
+
+                SetHomeData(false);
+
+            }
+
+            $scope.Ara = function () {
+                //alert("Arabic");
+                //$('#Langsel').modal('toggle');
+                $scope.v1 = "images/ar/";
+                localStorage.setItem("Language", "Ar");
+                $scope.IsArabic = false;
+                $scope.Language = "Ar";
+
+                SetHomeData(true);
+            }
+
+            //specialalert("alert-2","Sultan Qaboos University App",3000);
+
+            $scope.squmap = function () {
+                //alert("map");
+                var url = "http://www.livescore.com/";
+                siteloader(url);
+            }
+
+            $scope.squsis = function () {
+                //alert("sis");
+                var url = "https://sis.squ.edu.om/sis/webreg/3s/index.jsp";
+                siteloader(url);
+            }
+
+            $scope.squnews = function () {
+                //alert("news");
+                var url = "http://www.squ.edu.om/squmedia";
+
+                if ($scope.Language == "Ar")
+                    url = "http://www.squ.edu.om/squmedia-ar";
+
+                siteloader(url);
+            }
+
+            $scope.squevents = function () {
+                //alert("events");
+                var url = "http://www.squ.edu.om/squmedia";
+
+                if ($scope.Language == "Ar")
+                    url = "http://www.squ.edu.om/squmedia-ar";
+
+				window.open(url, '_system');
+                //siteloader(url);
+            }
+
+            $scope.squhosp = function () {
+                //alert("hopital");
+                var url = "http://www.squ.edu.om/SQU-Hospital";
+
+                if ($scope.Language == "Ar")
+                    url = "http://www.squ.edu.om/squ-ar/%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89-%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9";
+
+                siteloader(url);
+            }
+
+            $scope.squlib = function () {
+                //alert("libraries");
+                var url = "http://www.squ.edu.om/libraries";
+
+                if ($scope.Language == "Ar")
+                    url = "http://www.squ.edu.om/libraries-ar";
+
+                siteloader(url);
+            }
+
+            $scope.squrescof = function () {
+                //alert("restuarent cofee");
+                var url = "http://www.squ.edu.om/dsa/Student-Activities";
+                siteloader(url);
+            }
+
+            $scope.squweb = function () {
+                //alert("website");
+                var url = "http://www.squ.edu.om/";
+				
+				if ($scope.Language == "Ar")
+                    url = "http://www.squ.edu.om/squ-ar/";
+				
+                siteloader(url);
+            }
+
+            $scope.squpart = function () {
+                //alert("partners");
+                var url = "http://www.squ.edu.om/ic";
+				
+				if ($scope.Language == "Ar")
+                    url = "http://www.squ.edu.om/ic-ar";
+				
+                siteloader(url);
+            }
+
+            $scope.squcontact = function () {
+                //alert("contact us");
+                var url = "http://www.livescore.com/";
+                siteloader(url);
+            }
+
+            $scope.squemergency = function () {
+                //alert("emergencies");
+                var url = "http://www.squ.edu.om/rmo";
+                siteloader(url);
+            }
+        });
+
+        SQUapp.controller('MapsController', function ($scope, $http, $state, $rootScope, $window, $sce) {
+            
+        });
+
+        SQUapp.controller('GalleryController', function ($scope, $http, $state, $rootScope, $window, $location) {
+		$scope.Gallery= {
+			gallery: "Gallery", university: "University", students:"Students", hostel:"Hostel", staff:"Staff"
+		};
+		if ($location.search().lan == "Ar") {
+			$scope.Gallery= {
+				gallery: "صالة عرض", university: "جامعة", students:"الطلاب", hostel:"نزل", staff:"العاملين"
+			};
+		}
+        });
+
+        SQUapp.controller('ContactUsController', function ($scope, $http, $state, $rootScope, $window, $sce, $location) {
+
+            $scope.ContactUs = {
+                contactus: "Contact US", name: "Name", email: "Email", query: "Query",
+                nameph: "Type your name", emailph: "example@xyz.com", queryph: "Type your message...", submit: "Submit"
+            };
+
+            $scope.Direction = "ltr";
+
+            $scope.Address = {
+                postbox: "P.O.Box", postboxval: "50",
+                postalcode: "Postal Code", postalcodeval: "123, Sultanate of Oman, Al Khoudh",
+                email: "Email", emailval: "customer@squ.edu.om",
+                phoneno: "Phone no", phonenoval: "(+968) 24141111",
+                fax: "Fax", faxval: "(+968) 24145570"
+            };
+
+            if ($location.search().lan == "Ar") {
+                $scope.ContactUs = {
+                    contactus: "اتصل بنا", name: "اسم", email: "البريد الإلكتروني", query: "سؤال",
+                    nameph: "اكتب اسمك", emailph: "example@xyz.com", queryph: "اكتب رسالتك...", submit: "عرض"
+                };
+                $scope.Direction = "rtl";
+
+                $scope.Address = {
+                    postbox: "ص.ب:", postboxval: "50",
+                    postalcode: "الرمز البريدي", postalcodeval: "123, Sultanate of Oman, Al Khoudh",
+                    email: "البريد الإلكتروني", emailval: "customer@squ.edu.om",
+                    phoneno: "رقم الهاتف", phonenoval: "(+968) 24141111",
+                    fax: "فاكس", faxval: "(+968) 24145570"
+                };
+            }
+
+            $scope.LoadFaceBook = function () {
+                /*setTimeout(function () {
+                window.open( "https://www.facebook.com/SQUINFO", '_blank', 'location=yes');
+                }, 300);
+                window.location = "fb://";*/
+                window.open("https://www.facebook.com/SQUINFO", '_system', 'location=no');
+            }
+
+            $scope.LoadTwiter = function () {
+                /*setTimeout(function () {
+                window.open( "https://www.facebook.com/SQUINFO", '_blank', 'location=yes');
+                }, 300);
+                window.location = "fb://";*/
+                window.open("https://twitter.com/squ_info", '_blank', 'location=no');
+            }
+
+            $scope.LoadYouTube = function () {
+                /*setTimeout(function () {
+                window.open( "https://www.facebook.com/SQUINFO", '_blank', 'location=yes');
+                }, 300);
+                window.location = "fb://";*/
+                window.open("https://www.youtube.com/channel/UCOzuqm4iP7czBZ4uWd2Swrg", '_blank', 'location=no');
+            }
+
+            $scope.LoadIstagram = function () {
+                /*setTimeout(function () {
+                window.open( "https://www.facebook.com/SQUINFO", '_blank', 'location=yes');
+                }, 300);
+                window.location = "fb://";*/
+                window.open("https://www.instagram.com/squinfo5/", '_blank', 'location=no');
+            }
+        });
+
+    </script>
+
+
+
+</html>

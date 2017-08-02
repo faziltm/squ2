@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="SQUapp">
+    <meta charset="UTF-8" />
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-image: url("images/background.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .logo-s {
+            width: 100%;
+            margin-left: 0%;
+        }
+        .search-s {
+            width: 108.5%;
+            margin-left: -5%;
+            margin-top: -30px;
+        }
+        .icon-s {
+            width: 70%;
+        }
+        .row-h {
+            margin-top: 7%;
+        }
+        .modal-backdrop.in {
+            opacity: 1 !important;
+        }
+        .modal-backdrop {
+            background-color: #fff !important;
+        }
+        .langtitle {
+            text-align: center;
+        }
+        .L-button {
+            margin-top: 4%;
+            z-index: 5000;
+        }
+        .F-section {
+            padding: 0px !important;
+            margin: 0px !important;
+            margin-top: -3% !important;
+            z-index: 1000;
+        }
+        .icon-title {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .nav-icon {
+            text-align: center;
+        }
+        .btn-language {
+            color: #5BC0DE;
+            background: transparent;
+            background-color: transparent;
+            border-color: transparent;
+            height: 40px;
+            font-size: 16px;
+        }
+        @media only screen and (min-width: 320px) and (max-width: 479px) {
+            .icon-title {
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+
+        @media only screen and (min-width: 480px) and (max-width: 767px) {
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+        }
+		
+    </style>
+
+    <body>
+
+        <div align="right">
+            <button class="btn btn-language L-button" ng-click="Ara();" id="btnArabic" ng-show="IsArabic">العربية</button>
+            <button class="btn btn-language L-button" ng-click="Eng();" id="btnEnglish" ng-show="!IsArabic">English</button>
+        </div>
+    
+        <div class="container">
+
+            <div class="row F-section">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <img src="{{v1}}sultanQaboos.png" class="logo-s" />
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div style="height:5px;background-color:#25A8DF;width:100%;margin-top:10px;"></div>
+                </div>
+            </div>
+
+            <div class="row row-h">
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon ">
+                    <a href="Maps.html" ><img src="{{v1}}icon1.png" class="icon-s" /></a>
+                    <div class="icon-title">{{HomeData.squmap}}</div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon2.png" ng-click="squsis();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.sis}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon3.png" ng-click="squnews();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.squnews}}</div>
+                </div>
+
+            </div>
+
+            <div class="row row-h">
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon4.png" ng-click="squevents();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.events}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon5.png" ng-click="squhosp();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.squh}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon6.png" ng-click="squlib();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.libraries}}</div>
+                </div>
+
+            </div>
+
+            <div class="row row-h">
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon7.png" ng-click="squrescof();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.rest}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon8.png" ng-click="squweb();" ng-click="squweb();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.squwebsite}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon9.png" ng-click="squpart();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.squpartners}}</div>
+                </div>
+
+            </div>
+
+            <div class="row row-h">
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <a href="#ContactUs?lan={{Language}}"><img src="{{v1}}icon10.png" class="icon-s" /></a>
+                    <div class="icon-title">{{HomeData.contactus}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <img src="{{v1}}icon11.png" ng-click="squemergency();" class="icon-s" />
+                    <div class="icon-title">{{HomeData.emergency}}</div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 nav-icon">
+                    <a href="#Gallery?lan={{Language}}""><img src="{{v1}}icon12.png" class="icon-s" /></a>
+                    <div class="icon-title">{{HomeData.gallery}}</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!------------------------//menu side------------------------>
+        <!----------------------------Language modal---------------------------------------->
+        <div id="Langsel" class="modal fade homelogin" role="dialog">
+            <div class="modal-dialog">
+
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                        <h4 class="modal-title text-info langtitle">Language</h4>
+                    </div>
+
+                    <div class="modal-body" align="center">
+                        <button class="btn btn-info" ng-click="Eng();" style="width:100px;">English</button><br><br>
+                        <button class="btn btn-info" ng-click="Ara();" style="width:100px;">Arabic</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!----------------------------//////Language modal---------------------------------------->
+        <!----------------------------footer Nav---------------------------------------->
+        <!-- <div class="navfoot" align="center">
+                 <img src="images/Lemon_Tech_logo.png" style="width:120px;"/>
+                </div> -->
+        <!--------------------------//footer Nav---------------------------------------->
+        <!--start-smoth-scrolling-->
+        <!-- <a href="#about" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> -->
+        <!--//smoth-scrolling-->
+
+    </body>
+
+</html>
